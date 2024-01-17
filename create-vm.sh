@@ -8,5 +8,10 @@ else
   sleep 2
 fi
 
-multipass launch --name local-vm -c 4 -m 4G
-
+if (multipass info local-vm)
+then
+  echo "local-vm already exist"
+else
+  echo "launching local-vm"
+  multipass launch --name local-vm -c 4 -m 4G
+fi
